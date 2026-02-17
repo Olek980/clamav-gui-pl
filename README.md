@@ -74,6 +74,7 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 
 ### Planned Improvements
 - [ ] Backend Error Translation
+- [ ] Real Time Scan Path Monitoring Settings
 - [ ] Write the Usage Guide on the `docs/`
 - [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
 - [ ] Fix the ARM64 build workflow
