@@ -79,7 +79,10 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 - [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
 - [ ] Fix the ARM64 build workflow
 - [ ] Scheduler support for Linux and MacOS
-- [ ] YARA Rules and YARA Scan Type + YARA Real-Time Scan Type
+- [ ] YARA Related Features
+  - [ ] YARA Scan Type
+  - [ ] YARA Real-time Option
+  - [ ] YARA Configuration in settings
 
 ### Built With
 - [![Tauri][tauri-shield]][tauri-url]
