@@ -75,7 +75,11 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 ### Planned Improvements
 - [ ] Backend Error Translation
 - [ ] Real Time Scan Path Monitoring Settings
-- [ ] Write the Usage Guide on the `docs/`
+- [ ] Write the Documentation on the `docs/` folder.
+  - [ ] Usage Guide
+  - [ ] Installation Guide
+  - [ ] Troubleshooting
+  - [ ] FAQs
 - [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
 - [ ] Fix the ARM64 build workflow
 - [ ] Scheduler support for Linux and MacOS
@@ -100,6 +104,8 @@ You can find the latest stable version of the ClamAV GUI right here
 
 <!-- TODO: Write the Usage Guide on the docs/
 ## Usage
+Full documentation is available here:
+➡️ [Documentation][docs-url]
 -->
 
 ## Versioning
@@ -159,6 +165,7 @@ ClamAV is a trademark of Cisco Systems, Inc. This project is an independent, ope
 [contributing-url]: https://github.com/ArsenTech/clamav-gui/blob/main/docs/CONTRIBUTING.md
 [changelog-url]: https://github.com/ArsenTech/clamav-gui/blob/main/CHANGELOG.md
 [website-url]: https://arsentech.github.io
+[docs-url]: https://github.com/ArsenTech/clamav-gui/blob/main/docs/usage.md
 
 <!-- Languages -->
 [tauri-shield]: https://img.shields.io/badge/Tauri-FFC131?style=for-the-badge&logo=Tauri&logoColor=white
