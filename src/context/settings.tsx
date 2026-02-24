@@ -30,8 +30,21 @@ export function SettingsProvider({ children }: { children: React.ReactNode }){
                const newValues: ISettings = {
                     ...settings,
                     ...overrides
-               };
-               localStorage.setItem("clamav-settings",JSON.stringify(newValues))
+               }; localStorage.setItem("clamav-settings",JSON.stringify(newValues))
+               setSettings(newValues)
+          },
+          increaseQuarantineCountBy: (count = 0) => {
+               const newValues: ISettings = {
+                    ...settings,
+                    quarantineCount: settings.quarantineCount+count
+               }; localStorage.setItem("clamav-settings",JSON.stringify(newValues))
+               setSettings(newValues)
+          },
+          decreaseQuarantineCountBy: (count = 0) => {
+               const newValues: ISettings = {
+                    ...settings,
+                    quarantineCount: settings.quarantineCount-count
+               }; localStorage.setItem("clamav-settings",JSON.stringify(newValues))
                setSettings(newValues)
           },
           formatDate
@@ -49,4 +62,16 @@ export function useSettings() {
           throw new Error("useSettings must be used inside SettingsProvider");
      }
      return ctx;
+}
+
+export function useQuarantineCount() {
+     const ctx = useContext(SettingsContext);
+     if (!ctx) {
+          throw new Error("useSettings must be used inside SettingsProvider");
+     }
+     const {increaseQuarantineCountBy, decreaseQuarantineCountBy} = ctx;
+     return {
+           increaseBy: increaseQuarantineCountBy,
+           decreaseBy: decreaseQuarantineCountBy
+     }
 }
