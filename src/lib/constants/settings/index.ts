@@ -25,6 +25,7 @@ export const DEFAULT_SETTINGS: ISettings = {
      notifOnScanFinish: true,
      notifPermitted: false,
      behavior: BehaviorMode.Balanced,
+     quarantineCount: 0
 }
 export const DEFAULT_BACKEND_SETTINGS: BackendSettings = {
      scanProfiles: {

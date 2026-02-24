@@ -74,7 +74,7 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 
 ### Planned Improvements
 - [ ] Real-time Quarantine Count Updater
-- [ ] Icons in Data Table Badges
+- [X] Icons in Data Table Badges
 - [ ] Improved Theme Colors
 - [ ] Backend Error Translation
 - [ ] Real Time Scan Path Monitoring Settings
