@@ -4,7 +4,7 @@ All notable changes of ArsenTech's ClamAV GUI will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
-## [1.0.1] - 2026-02-12
+## [1.0.1] - 2026-02-25
 ### Added
 - Real-time Quarantine Count On the Sidebar
 ### Improved
