@@ -74,7 +74,9 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 
 ### Planned Improvements
 - [ ] Backend Error Translation
-- [ ] Real Time Scan Path Monitoring Settings
+- [ ] Settings
+  - [ ] Real Time Scan Path Monitoring Settings
+  - [ ] Badge Visibility Settings - Icon only, Icon and text, and Text only
 - [ ] Write the Documentation on the `docs/` folder.
   - [ ] Usage Guide
   - [ ] Installation Guide
