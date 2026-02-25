@@ -57,19 +57,25 @@ export default function ScanProcess({scanState, handleReset, isStartup}: Props){
                {scanType!=="full" ? (
                     <>
                     <Progress value={percentage}/>
-                    <p className="text-2xl font-semibold text-center flex justify-center items-center gap-1.5"><Spinner className="size-9 text-muted-foreground"/> {scannedFiles<=0 ? t("process.preparing") : t("process.percentage",{
-                         percentage,
-                         scanned: formatNumber(scannedFiles,numSuffixTxt,locale),
-                         total: formatNumber(totalFiles,numSuffixTxt,locale)
-                    })}</p>
+                    <p className="text-2xl font-semibold text-center flex justify-center items-center gap-1.5">
+                         <Spinner className="size-9 text-muted-foreground"/> 
+                         {scannedFiles<=0 ? t("process.preparing") : t("process.percentage",{
+                              percentage,
+                              scanned: formatNumber(scannedFiles,numSuffixTxt,locale),
+                              total: formatNumber(totalFiles,numSuffixTxt,locale)
+                         })}
+                    </p>
                     </>
                ) : (
                     <>
-                    <p className="text-2xl font-semibold text-center flex justify-center items-center gap-1.5"><Spinner className="size-9 text-muted-foreground"/> {scannedFiles<=0 ? t("process.preparing") : (
-                         <>{t("process.scanning")} <Dot/> {t("process.files",{
-                              scanned: formatNumber(scannedFiles,numSuffixTxt,locale)
-                         })}</>
-                    )}</p>
+                    <p className="text-2xl font-semibold text-center flex justify-center items-center gap-1.5">
+                         <Spinner className="size-9 text-muted-foreground"/> 
+                         {scannedFiles<=0 ? t("process.preparing") : (
+                              <>{t("process.scanning")} <Dot/> {t("process.files",{
+                                   scanned: formatNumber(scannedFiles,numSuffixTxt,locale)
+                              })}</>
+                         )}
+                    </p>
                     <p className="text-muted-foreground">{t("full-scan-warn")}</p>
                     </>
                )}

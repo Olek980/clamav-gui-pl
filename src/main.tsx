@@ -8,17 +8,20 @@ import { ThemeProvider } from "./context/themes";
 import "@/i18n"
 import { RealtimeProvider } from "./context/real-time";
 import { SettingsProvider } from "./context/settings";
+import { QuarantineCountProvider } from "./context/quarantine-count";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
      <React.StrictMode>
           <SettingsProvider>
-               <RealtimeProvider>
-                    <ThemeProvider>
-                         <StartupScanProvider>
-                              <RouterProvider router={router}/>
-                         </StartupScanProvider>
-                    </ThemeProvider>
-               </RealtimeProvider>
+               <QuarantineCountProvider>
+                    <RealtimeProvider>
+                         <ThemeProvider>
+                              <StartupScanProvider>
+                                   <RouterProvider router={router}/>
+                              </StartupScanProvider>
+                         </ThemeProvider>
+                    </RealtimeProvider>
+               </QuarantineCountProvider>
           </SettingsProvider>
      </React.StrictMode>
 );

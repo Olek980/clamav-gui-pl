@@ -47,8 +47,7 @@ export interface ISettings{
      notifOnScanStart: boolean,
      notifOnScanFinish: boolean,
      notifPermitted: boolean,
-     behavior: BehaviorMode,
-     quarantineCount: number
+     behavior: BehaviorMode
 }
 export type BackendSettings = {
      scanProfiles: {

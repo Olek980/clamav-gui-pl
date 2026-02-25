@@ -4,9 +4,12 @@ All notable changes of ArsenTech's ClamAV GUI will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
-## [1.0.1] - Unreleased
+## [1.0.1] - 2026-02-12
+### Added
+- Real-time Quarantine Count On the Sidebar
 ### Improved
-- **History Status Badges** - Added an Icon back
+- **History Status Badges** - Added an Icon
+- Buttons with Loading Status
 ### Changed
 - The **View Details** Icon - Changed back into the List icon
 

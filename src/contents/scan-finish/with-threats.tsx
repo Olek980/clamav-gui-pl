@@ -8,12 +8,13 @@ import { useMemo, useTransition } from "react";
 import Popup from "@/components/popup";
 import { invoke } from "@tauri-apps/api/core";
 import { toast } from "sonner";
-import { Spinner } from "@/components/ui/spinner";
+import LoadingButton from "@/components/loading-button";
 import { formatDuration } from "@/lib/helpers/formating";
 import { IFinishScanState, IScanPageState } from "@/lib/types/states";
 import { INITIAL_FINISH_SCAN_STATE } from "@/lib/constants/states";
 import { useSettings } from "@/context/settings";
 import { useTranslation } from "react-i18next";
+import { useQuarantineCount } from "@/context/quarantine-count";
 
 interface Props{
      setScanState: React.Dispatch<React.SetStateAction<IScanPageState>>,
@@ -25,6 +26,7 @@ interface Props{
 }
 export default function ScanFinishedTable({setScanState, isStartup, scanState, handlePrimaryAction, finishScanState, setState}: Props){
      const {settings} = useSettings();
+     const {increaseBy} = useQuarantineCount()
      const [isPending, startTransition] = useTransition()
      const {t: messageTxt} = useTranslation("messages")
      const handleDelete = async() => {
@@ -55,6 +57,7 @@ export default function ScanFinishedTable({setScanState, isStartup, scanState, h
                          .filter(t => t.status === "detected")
                          .map(t => [t.filePath, t.displayName]);
                     await invoke("quarantine_all", { files: targets });
+                    increaseBy(targets.length)
                     setScanState(prev=>({
                          ...prev,
                          threats: prev.threats.map(t =>t.status === "detected" ? { ...t, status: "quarantined" } : t)
@@ -100,10 +103,13 @@ export default function ScanFinishedTable({setScanState, isStartup, scanState, h
                <ButtonGroup>
                     <DropdownMenu>
                          <DropdownMenuTrigger asChild disabled={isResolved}>
-                              <Button>
-                                   {isPending ? <Spinner/> : <ShieldCheck/>}
-                                   {isPending ? t("please-wait") : isResolved ? t("resolve.success") : t("resolve.title")}
-                              </Button>
+                              <LoadingButton
+                                   isLoading={isPending}
+                                   loaderText={t("please-wait")}
+                              >
+                                   <ShieldCheck/>
+                                   {isResolved ? t("resolve.success") : t("resolve.title")}
+                              </LoadingButton>
                          </DropdownMenuTrigger>
                          <DropdownMenuContent align="end">
                               <DropdownMenuItem onClick={handleBulkQuarantine}>

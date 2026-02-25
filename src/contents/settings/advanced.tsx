@@ -12,11 +12,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useScanProfile } from "@/hooks/use-scan-profile";
 import { SettingsProps } from "@/lib/types/props";
 import { RealTimeToggle } from "@/components/settings-item/real-time-toggler";
-import { Button } from "@/components/ui/button";
+import LoadingButton from "@/components/loading-button";
 import { IDangerZoneState } from "@/lib/types/states";
 import { INITIAL_DANGER_ZONE_STATE } from "@/lib/constants/states";
 import Popup from "@/components/popup";
-import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
 import { store } from "@/lib/store";
 import SettingsOption from "@/components/settings-item/settings-option";
@@ -219,19 +218,29 @@ export default function AdvancedSettings({scanProfile}: SettingsProps){
                          title={t("danger-zone.delete.title")}
                          description={t("danger-zone.delete.desc")}
                     >
-                         <Button variant="destructive" onClick={()=>updateState({isOpenDelete: true})} disabled={isPending}>
-                              {isPending ? <Spinner/> : <Trash2/>}
-                              {isPending ? t("danger-zone.pending") : t("danger-zone.delete.button")}
-                         </Button>
+                         <LoadingButton
+                              isLoading={isPending}
+                              loaderText={t("danger-zone.pending")}
+                              variant="destructive"
+                              onClick={()=>updateState({isOpenDelete: true})}
+                         >
+                              <Trash2/>
+                              {t("danger-zone.delete.button")}
+                         </LoadingButton>
                     </SettingsOption>
                     <SettingsOption
                          title={t("danger-zone.restore.title")}
                          description={t("danger-zone.restore.desc")}
                     >
-                         <Button variant="destructive" onClick={()=>updateState({isOpenRestore: true})} disabled={isPending}>
-                              {isPending ? <Spinner/> : <RotateCcw/>}
-                              {isPending ? t("danger-zone.pending") : t("danger-zone.restore.button")}
-                         </Button>
+                         <LoadingButton
+                              isLoading={isPending}
+                              loaderText={t("danger-zone.pending")}
+                              variant="destructive"
+                              onClick={()=>updateState({isOpenRestore: true})}
+                         >
+                              <RotateCcw/>
+                              {t("danger-zone.restore.button")}
+                         </LoadingButton>
                     </SettingsOption>
                </SettingsItem>
           </div>

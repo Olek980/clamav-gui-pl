@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
 import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Progress } from "../ui/progress";
@@ -8,6 +7,7 @@ import Installation from "./steps/installation";
 import AddPath from "./steps/add-path";
 import { Trans, useTranslation } from "react-i18next";
 import LanguageSelector from "@/i18n/languages";
+import LoadingButton from "../loading-button";
 
 const steps = [
      { alias: "installation", element: <Installation/> },
@@ -67,10 +67,10 @@ export default function NoClamAVPage({isPending, handleCheck}: Props){
                                    <ChevronLeft/>
                                    {t("buttons.prev")}
                               </Button>
-                              <Button onClick={handleClickNext} disabled={isPending}>
-                                   {isPending ? <Spinner/> : step+1!==steps.length ? <ChevronRight/> : <RotateCcw/>}
-                                   {isPending ? t("buttons.check.pending") : step+1!==steps.length ? t("buttons.next") : t("buttons.check.original")}
-                              </Button>
+                              <LoadingButton isLoading={isPending} onClick={handleClickNext} loaderText={t("buttons.check.pending")}>
+                                   {step+1!==steps.length ? <ChevronRight/> : <RotateCcw/>}
+                                   {step+1!==steps.length ? t("buttons.next") : t("buttons.check.original")}
+                              </LoadingButton>
                          </ButtonGroup>
                          <LanguageSelector/>
                     </div>

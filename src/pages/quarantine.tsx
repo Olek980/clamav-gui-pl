@@ -13,12 +13,14 @@ import { useSettings } from "@/context/settings";
 import { GET_QUARANTINE_COLS } from "@/components/data-table/columns/quarantine";
 import { ActionType } from "@/lib/types";
 import { useTranslation } from "react-i18next";
+import { useQuarantineCount } from "@/context/quarantine-count";
 const QuarantineTable = lazy(()=>import("@/contents/quarantine"))
 
 export default function QuarantinePage(){
      const {settings} = useSettings();
      const [quarantineState, setQuarantineState] = useState<IQuarantineState>(INITIAL_QUARANTINE_STATE);
      const [isRefreshing, startTransition] = useTransition();
+     const {setCount, decreaseBy} = useQuarantineCount();
      const fetchData = () => {
           startTransition(()=>invoke<IQuarantineData[]>("list_quarantine").then(data=>{
                const newData: IQuarantineData[] = data.map(({id,threat_name,file_path,quarantined_at,size})=>({
@@ -28,6 +30,7 @@ export default function QuarantinePage(){
                     quarantined_at: new Date(quarantined_at),
                     size: isNaN(size) ? 0 : size
                }))
+               setCount(newData.length)
                setState({ data: newData });
           }).catch(() => setState({ data: [] })));
      }
@@ -43,6 +46,7 @@ export default function QuarantinePage(){
                })
                const dataCopy = [...quarantineState.data].filter(val=>val.id!==quarantineState.id)
                setState({ data: dataCopy });
+               decreaseBy(1)
                toast.success(messageTxt(`${type}-quarantine.success`));
           } catch (err){
                toast.error(messageTxt(`${type}-quarantine.error`,{
@@ -63,6 +67,7 @@ export default function QuarantinePage(){
                const ids = data.map(t => t.id);
                const commandName = type==="restore" ? "restore_all" : "clear_quarantine";
                await invoke(commandName, { ids });
+               setCount(0)
                setState({ data: [] })
                toast.success(messageTxt(`bulk-${type}-quarantine.success`));
           } catch (err){

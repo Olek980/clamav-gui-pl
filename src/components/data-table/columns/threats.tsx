@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { IFinishScanState, IScanPageState } from "@/lib/types/states";
 import { useSettings } from "@/context/settings";
 import { useTranslation } from "react-i18next";
+import { useQuarantineCount } from "@/context/quarantine-count";
 
 export const GET_THREATS_COLS = (
      setScanState: React.Dispatch<React.SetStateAction<IScanPageState>>,
@@ -69,6 +70,7 @@ export const GET_THREATS_COLS = (
           {
                id: "actions",
                cell: ({ row }) => {
+                    const {increaseBy} = useQuarantineCount();
                     const {t} = useTranslation("table");
                     const threat = row.original
                     const {t: messageTxt} = useTranslation("messages")
@@ -80,6 +82,7 @@ export const GET_THREATS_COLS = (
                                    threatName: displayName,
                                    logId: null,
                               })
+                              increaseBy(1)
                               setScanState(prev=>({
                                    ...prev,
                                    threats: prev.threats.map(val => val.filePath === filePath && val.displayName === displayName ? { ...val, status: "quarantined" } : val)

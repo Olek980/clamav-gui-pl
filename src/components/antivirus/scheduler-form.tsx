@@ -4,14 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { getSchedulerSchema } from "@/lib/schemas";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage} from "../ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { Button } from "../ui/button";
+import LoadingButton from "../loading-button";
 import { ClipboardClock } from "lucide-react";
 import { Input } from "../ui/input";
 import { DAYS_OF_THE_WEEK, INTERVALS, SCAN_OPTIONS } from "@/lib/constants";
 import { ScanType } from "@/lib/types/enums";
 import { ISchedulerFormValues } from "@/lib/types/settings"
 import { useState } from "react";
-import { Spinner } from "../ui/spinner";
 import { useTranslation } from "react-i18next";
 import { IntervalType } from "@/lib/types/data";
 
@@ -188,10 +187,14 @@ export default function SchedulerForm({handleSubmit, isSubmitting}: Props){
                               {formTxt("form.scheduled-time",{ time })}
                          </p>
                     )}
-                    <Button type="submit" disabled={isSubmitting}>
-                         {isSubmitting ? <Spinner/> : <ClipboardClock/>}
-                         {isSubmitting ? formTxt("form.button.pending") : formTxt("form.button.original")}
-                    </Button>
+                    <LoadingButton
+                         type="submit"
+                         isLoading={isSubmitting}
+                         loaderText={formTxt("form.button.pending")}
+                    >
+                         <ClipboardClock/>
+                         {formTxt("form.button.original")}
+                    </LoadingButton>
                </form>
           </Form>
      )

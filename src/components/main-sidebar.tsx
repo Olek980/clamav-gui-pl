@@ -5,6 +5,7 @@ import {
   SidebarGroup,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
@@ -14,10 +15,13 @@ import Logo from "./logo";
 import { useMemo } from "react";
 import { useSettings } from "@/context/settings";
 import { useTranslation } from "react-i18next";
+import { SidebarLink } from "@/lib/types/enums";
+import { useQuarantineCount } from "@/context/quarantine-count";
 
 export default function MainSidebar(){
      const location = useLocation();
      const {settings} = useSettings();
+     const {quarantineCount} = useQuarantineCount()
      const sidebarLinks = useMemo(()=>!settings.enableSchedulerUI ? SIDEBAR_LINKS.filter(val=>val.href!=="/scheduler") : SIDEBAR_LINKS,[settings.enableSchedulerUI])
      const {t} = useTranslation();
      return (
@@ -33,6 +37,9 @@ export default function MainSidebar(){
                                         <SidebarMenuButton isActive={location.pathname===href} asChild>
                                              <Link to={href} className="text-muted-foreground"><Icon className="text-primary dark:text-accent-foreground"/> {t(`sidebar.${name}`)}</Link>
                                         </SidebarMenuButton>
+                                        {(name===SidebarLink.Quarantine && quarantineCount>0) && (
+                                             <SidebarMenuBadge>{quarantineCount}</SidebarMenuBadge>
+                                        )}
                                    </SidebarMenuItem>
                               ))}
                          </SidebarMenu>

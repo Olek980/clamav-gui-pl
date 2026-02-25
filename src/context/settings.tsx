@@ -6,8 +6,6 @@ import { createContext, useContext, useState } from "react";
 interface SettingsContextValue{
      settings: ISettings,
      setSettings: (overrides: Partial<ISettings>) => void
-     increaseQuarantineCountBy: (count: number) => void
-     decreaseQuarantineCountBy: (count: number) => void
      formatDate: (date?: Date) => string
 }
 const SettingsContext = createContext<SettingsContextValue | null>(null)
@@ -35,20 +33,6 @@ export function SettingsProvider({ children }: { children: React.ReactNode }){
                }; localStorage.setItem("clamav-settings",JSON.stringify(newValues))
                setSettings(newValues)
           },
-          increaseQuarantineCountBy: (count = 0) => {
-               const newValues: ISettings = {
-                    ...settings,
-                    quarantineCount: settings.quarantineCount+count
-               }; localStorage.setItem("clamav-settings",JSON.stringify(newValues))
-               setSettings(newValues)
-          },
-          decreaseQuarantineCountBy: (count = 0) => {
-               const newValues: ISettings = {
-                    ...settings,
-                    quarantineCount: settings.quarantineCount-count
-               }; localStorage.setItem("clamav-settings",JSON.stringify(newValues))
-               setSettings(newValues)
-          },
           formatDate
      }
      return (
@@ -64,16 +48,4 @@ export function useSettings() {
           throw new Error("useSettings must be used inside SettingsProvider");
      }
      return ctx;
-}
-
-export function useQuarantineCount() {
-     const ctx = useContext(SettingsContext);
-     if (!ctx) {
-          throw new Error("useQuarantineCount must be used inside SettingsProvider");
-     }
-     const {increaseQuarantineCountBy, decreaseQuarantineCountBy} = ctx;
-     return {
-           increaseBy: increaseQuarantineCountBy,
-           decreaseBy: decreaseQuarantineCountBy
-     }
 }

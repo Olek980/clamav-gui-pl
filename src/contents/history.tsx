@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { save } from '@tauri-apps/plugin-dialog';
 import { exportCSV, exportJSON } from "@/lib/helpers/fs";
-import { Spinner } from "@/components/ui/spinner";
 import Popup from "@/components/popup";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { IHistoryPageState } from "@/lib/types/states";
@@ -20,6 +19,7 @@ import { useSettings } from "@/context/settings";
 import { useTranslation } from "react-i18next";
 import { HistoryClearType } from "@/lib/types/enums"
 import { translateDetails } from "@/lib/helpers/history";
+import LoadingButton from "@/components/loading-button";
 
 export default function HistoryContent(){
      const {settings} = useSettings();
@@ -109,10 +109,14 @@ export default function HistoryContent(){
                               </Button>
                               <DropdownMenu>
                                    <DropdownMenuTrigger asChild>
-                                        <Button variant="outline" disabled={isClearing}>
-                                             {isClearing ? <Spinner/> : <Trash2/>}
-                                             {isClearing ? t("clear.loading") : t("clear.title")}
-                                        </Button>
+                                        <LoadingButton
+                                             isLoading={isClearing}
+                                             loaderText={t("clear.loading")}
+                                             variant="outline"
+                                        >
+                                             <Trash2/>
+                                             {t("clear.title")}
+                                        </LoadingButton>
                                    </DropdownMenuTrigger>
                                    <DropdownMenuContent>
                                         <DropdownMenuItem onClick={()=>setState({clearAll: true})} disabled={isEmpty}>
