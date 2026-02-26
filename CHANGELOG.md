@@ -10,6 +10,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Clear History Options
   - Clear All Warnings
 - Button to Enable Real-time protection on the Indicator when its disabled
+### Improved
+- The App Background Color to a **Lighter shade** (light mode) and **Darker shade** (dark mode)
 
 ## [1.0.1] - 2026-02-25
 ### Added

@@ -1,7 +1,7 @@
 export const COLORS = {
      blue: {
           light: {
-               background: "oklch(1 0 0)",
+               background: "oklch(0.9801 0.0096 252.81)",
                foreground: "oklch(0.141 0.005 285.823)",
                card: "oklch(1 0 0)",
                cardForeground: "oklch(0.141 0.005 285.823)",
@@ -31,7 +31,7 @@ export const COLORS = {
                }
           },
           dark: {
-               background: "oklch(0.141 0.005 285.823)",
+               background: "oklch(0.1326 0.0384 262.03)",
                foreground: "oklch(0.985 0 0)",
                card: "oklch(0.21 0.006 285.885)",
                cardForeground: "oklch(0.985 0 0)",
@@ -70,7 +70,7 @@ export const COLORS = {
      },
      green: {
           light: {
-               background: "oklch(1 0 0)",
+               background: "oklch(0.9917 0.0074 164.95)",
                foreground: "oklch(0.141 0.005 285.823)",
                card: "oklch(1 0 0)",
                cardForeground: "oklch(0.141 0.005 285.823)",
@@ -100,7 +100,7 @@ export const COLORS = {
                }
           },
           dark: {
-               background: "oklch(0.141 0.005 285.823)",
+               background: "oklch(0.1597 0.0405 125.68)",
                foreground: "oklch(0.985 0 0)",
                card: "oklch(0.21 0.006 285.885)",
                cardForeground: "oklch(0.985 0 0)",
@@ -139,7 +139,7 @@ export const COLORS = {
      },
      rose: {
           light: {
-               background: "oklch(1 0 0)",
+               background: "oklch(0.9892 0.0055 3.33)",
                foreground: "oklch(0.141 0.005 285.823)",
                card: "oklch(1 0 0)",
                cardForeground: "oklch(0.141 0.005 285.823)",
@@ -169,7 +169,7 @@ export const COLORS = {
                }
           },
           dark: {
-               background: "oklch(0.141 0.005 285.823)",
+               background: "oklch(0.1481 0.0594 6.38)",
                foreground: "oklch(0.985 0 0)",
                card: "oklch(0.21 0.006 285.885)",
                cardForeground: "oklch(0.985 0 0)",

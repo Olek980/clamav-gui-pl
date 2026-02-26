@@ -79,7 +79,9 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 - [ ] Settings
   - [ ] Real Time Scan Path Monitoring Settings
   - [X] Badge Visibility Settings - Icon only, Icon and text, and Text only
-- [ ] Improved app background alongside some UI improvements if needed
+- [ ] UI Improvements
+  - [X] App Background
+  - [ ] Other UI Improvements if needed
 - [ ] New Clear History Options
   - [X] Clear All Warnings
   - [ ] Clear older than 30 days
