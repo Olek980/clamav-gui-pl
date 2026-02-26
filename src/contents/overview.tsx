@@ -47,7 +47,7 @@ export default function OverviewContent(){
                />
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full p-4 gap-4">
                     {QUICK_ACCESS_LINKS.map(({type,href,Icon,openDialogType},i)=>(
-                         <div key={`item-${i+1}`} className="w-full p-3 shadow-sm rounded-md bg-background text-foreground border grow shrink-0 h-36 flex justify-center items-center gap-4 hover:border-primary hover:cursor-pointer" onClick={()=>openDialogType==="none" ? navigate(href) : openCustomScan(href,openDialogType)}>
+                         <div key={`item-${i+1}`} className="w-full p-3 shadow-sm rounded-md bg-card text-card-foreground border grow shrink-0 h-36 flex justify-center items-center gap-4 hover:border-primary hover:cursor-pointer" onClick={()=>openDialogType==="none" ? navigate(href) : openCustomScan(href,openDialogType)}>
                               <Icon className="size-12 text-primary"/>
                               <div className="w-[calc(100%-48px)] space-y-0.5">
                                    <h2 className="text-lg md:text-xl font-medium">{t(`${type}.name`)}</h2>
