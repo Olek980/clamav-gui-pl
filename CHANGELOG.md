@@ -4,6 +4,8 @@ All notable changes of ArsenTech's ClamAV GUI will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [1.0.2] - Unreleased
+
 ## [1.0.1] - 2026-02-25
 ### Added
 - Real-time Quarantine Count On the Sidebar
@@ -253,6 +255,7 @@ This is the first pre-release of the ClamAV GUI. The backend functionality will 
 - The About Page
 - State-gated Layout (It'll show "Oops, No ClamAV found" if ClamAV isn't installed)
 
+[1.0.2]: https://github.com/ArsenTech/clamav-gui/releases/tag/v1.0.2
 [1.0.1]: https://github.com/ArsenTech/clamav-gui/releases/tag/v1.0.1
 [1.0.0]: https://github.com/ArsenTech/clamav-gui/releases/tag/v1.0.0
 [1.0.0-3]: https://github.com/ArsenTech/clamav-gui/releases/tag/v1.0.0-3
