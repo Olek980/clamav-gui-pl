@@ -76,6 +76,7 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 - [ ] Backend Error Translation
 - [X] Button to Enable Real-time protection on the Indicator when its disabled
 - [X] Confirmation before disabling the Real Time Scan
+- [ ] Colored dark mode icons to replace the white ones
 - [ ] Settings
   - [ ] Real Time Scan Path Monitoring Settings
   - [X] Badge Visibility Settings - Icon only, Icon and text, and Text only
