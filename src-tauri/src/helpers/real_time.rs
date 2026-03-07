@@ -43,9 +43,7 @@ fn behavior_config(mode: BehaviorMode) -> BehaviorConfig {
             rescan_on_modify: false,
         },
         BehaviorMode::Strict => BehaviorConfig {
-            scan_extensions: vec![
-                "exe", "dll", "js", "vbs", "bat", "ps1", "pdf", "zip", "com", "txt",
-            ],
+            scan_extensions: vec!["exe", "dll", "js", "vbs", "bat", "ps1", "pdf", "zip", "com", "txt"],
             auto_quarantine: true,
             rescan_on_modify: true,
         },
