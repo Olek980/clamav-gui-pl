@@ -74,16 +74,7 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 
 ### Planned Improvements
 - [ ] Backend Error Translation
-- [X] Button to Enable Real-time protection on the Indicator when its disabled
-- [X] Confirmation before disabling the Real Time Scan
-- [X] Settings
-  - [X] Real Time Scan Path Monitoring Settings
-  - [X] Badge Visibility Settings - Icon only, Icon and text, and Text only
-- [X] UI Improvements
-  - [X] Improved App Background color
-  - [X] Colored dark mode icons to replace the white ones
 - [ ] New Clear History Options
-  - [X] Clear All Warnings
   - [ ] Clear older than 30 days
   - [ ] Clear by date
 - [ ] Write the Documentation on the `docs/` folder.
