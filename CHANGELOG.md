@@ -14,6 +14,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Improved
 - The App Background Color to a **Lighter shade** (light mode) and **Darker shade** (dark mode)
 - Colored dark mode icons of the sidebar instead of the white ones
+- **Accent Color** (Skeleton Loading Color), **Muted Color**, and **Secondary Color**
 
 ## [1.0.1] - 2026-02-25
 ### Added
