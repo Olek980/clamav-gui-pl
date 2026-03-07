@@ -166,6 +166,7 @@ export default function AdvancedSettings({scanProfile}: SettingsProps){
                     {visibleOptions.map(([key,option])=>{
                          return (
                               <SettingsOption
+                                   key={key}
                                    title={scanTxt(`labels.${key}`)}
                                    description={option.flag}
                                    tooltip={isDescKey(key) ? scanTxt(`descriptions.${key}`) : undefined}

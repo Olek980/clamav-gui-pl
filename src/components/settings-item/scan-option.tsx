@@ -23,7 +23,7 @@ export function ChoiceOption({value,onValueChange,label,choiceKey,scanTxt}: Choi
                </SelectTrigger>
                <SelectContent>
                     {choices.map(choice=>(
-                         <SelectItem value={String(choice.value)}>{choice.label}</SelectItem>
+                         <SelectItem key={`${choice.label}-${choice.value}`} value={String(choice.value)}>{choice.label}</SelectItem>
                     ))}
                </SelectContent>
           </Select>
