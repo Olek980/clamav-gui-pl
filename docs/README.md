@@ -1,5 +1,5 @@
 # Welcome!
-Welcome to the documentation of **ArsenTech's ClamAV GUI** version 1.0.3!
+Welcome to the documentation of **ArsenTech's ClamAV GUI** version 1.0.2!
 
 Here are some quick links to get you started:
 - To use the ClamAV GUI, continue to the [Usage Guide](./usage.md)
