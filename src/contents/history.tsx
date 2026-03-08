@@ -73,6 +73,7 @@ export default function HistoryContent(){
      const exportDataAs = async () => {
           try{
                const path = await save({
+                    title: t("export.dialog-title"),
                     filters: [
                          { name: t("export.csv"), extensions: ["csv"] },
                          { name: t("export.json"), extensions: ["json","jsonc"] }

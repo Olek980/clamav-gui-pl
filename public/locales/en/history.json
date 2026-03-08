@@ -14,6 +14,7 @@
      },
      "export": {
           "title": "Export History As",
+          "dialog-title": "Export History Data As",
           "csv": "CSV File",
           "json": "JSON File"
      },
