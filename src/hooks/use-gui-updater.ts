@@ -53,7 +53,7 @@ export function useGuiUpdater(){
                     const update = await check();
                     if(update){
                          let downloaded = 0, contentLength = 0;
-                localStorage.removeItem("clamav")
+                         localStorage.removeItem("clamav")
                          await update.downloadAndInstall((event) => {
                               switch (event.event) {
                                    case 'Started':
