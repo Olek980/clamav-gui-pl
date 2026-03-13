@@ -60,10 +60,8 @@ export interface ISchedulerState{
 }
 export interface IUpdaterState{
      status: GuiUpdaterStatus,
-     notes: string | null,
      newVersion: string | null,
      patchDate: Date | null,
-     isOpenNotes: boolean,
      downloaded: number,
      total: number
 }

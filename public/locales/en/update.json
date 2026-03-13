@@ -58,12 +58,8 @@
                "check": {
                     "pending": "Checking...",
                     "original": "Check for the Updates"
-               }
+               },
+               "changelog": "Open Changelog"
           }
-     },
-     "notes": {
-          "title": "What's new?",
-          "no-notes": "No release notes available.",
-          "button-text": "Notes"
      }
 }

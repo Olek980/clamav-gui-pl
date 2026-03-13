@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState, useTransition } from "react";
 import { GuiUpdaterStatus } from "@/lib/types/enums";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import { openUrl } from "@tauri-apps/plugin-opener";
 
 export function useGuiUpdater(){
      const [isChecking, startChecking] = useTransition();
@@ -25,7 +26,6 @@ export function useGuiUpdater(){
                     if(update){
                          setUpdaterState({
                               status: GuiUpdaterStatus.NeedsUpdate,
-                              notes: !update.body ? null : update.body
                          })
                     } else {
                          setUpdaterState({
@@ -91,11 +91,12 @@ export function useGuiUpdater(){
           })
      }
      const relaunchApp = async() => await relaunch();
+     const openReleaseNotes = async() => await openUrl("https://github.com/ArsenTech/clamav-gui/blob/main/CHANGELOG.md")
      useEffect(()=>{
           checkForUpdates()
      },[]);
      const currProgress = useMemo(()=>(guiUpdate.downloaded/guiUpdate.total)*100,[guiUpdate.downloaded,guiUpdate.total]);
-     const {status, isOpenNotes, notes} = guiUpdate
+     const {status} = guiUpdate
      return {
           status,
           currProgress,
@@ -103,9 +104,7 @@ export function useGuiUpdater(){
           updateGUI,
           isChecking,
           isUpdating,
-          setIsOpenNotes: (open: boolean)=>setUpdaterState({isOpenNotes: open}),
-          isOpenNotes,
-          notes,
+          openReleaseNotes,
           checkForUpdates
      }
 }

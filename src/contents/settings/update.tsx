@@ -12,10 +12,6 @@ import { parseClamVersion } from "@/lib/helpers";
 import { toast } from "sonner";
 import SettingsItem from "@/components/settings-item";
 import { ButtonGroup } from "@/components/ui/button-group";
-import Popup from "@/components/popup";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import Markdown from "markdown-to-jsx"
-import { COMPONENTS } from "@/lib/constants";
 import { Progress } from "@/components/ui/progress";
 import {useGuiUpdater} from "@/hooks/use-gui-updater";
 import { useTranslation } from "react-i18next";
@@ -102,11 +98,10 @@ export default function UpdateSettings(){
      const {isRequired, exitMsg, lastUpdated, isUpdatingDefs} = updateState
      const isInitializing = !lastUpdated && !isUpdatingDefs
      const Icon = (isUpdatingDefs || isInitializing) ? Spinner : !isRequired ? CheckCircle : AlertCircle;
-     const {status, currProgress, relaunchApp, updateGUI, isChecking, isUpdating, setIsOpenNotes, isOpenNotes, notes, checkForUpdates} = useGuiUpdater()
+     const {status, currProgress, relaunchApp, updateGUI, isChecking, isUpdating, openReleaseNotes, checkForUpdates} = useGuiUpdater()
      const exitCodes = t("definitions.exit-codes",{returnObjects: true});
      const definitionsText = useMemo(()=>isUpdatingDefs ? "updating" : isInitializing ? "checking" : isRequired ? "outdated" : "updated",[isUpdatingDefs,isInitializing,isRequired])
      return (
-          <>
           <div className="px-1 py-2 space-y-3">
                <SettingsItem
                     Icon={BugOff}
@@ -179,7 +174,7 @@ export default function UpdateSettings(){
                                    <RotateCw className={cn(isUpdating && "animate-spin")}/>
                                    {isUpdating ? t("gui.buttons.update.pending") : t("gui.buttons.update.original")}
                               </Button>
-                              <Button variant="secondary" size="icon" title={t("notes.button-text")} onClick={()=>setIsOpenNotes(true)}>
+                              <Button variant="secondary" size="icon" title={t("gui.buttons.changelog")} onClick={openReleaseNotes}>
                                    <ScrollText/>
                               </Button>
                          </ButtonGroup>   
@@ -191,22 +186,5 @@ export default function UpdateSettings(){
                     )}
                </SettingsItem>
           </div>
-          <Popup
-               open={isOpenNotes}
-               onOpen={setIsOpenNotes}
-               title={t("notes.title")}
-               hideButtons
-          >
-               <ScrollArea className={cn(!!notes && "h-[400px] md:h-[600px]")}>
-                    {notes ? (
-                         <Markdown options={{ overrides: COMPONENTS }} className="mt-2 prose prose-slate dark:prose-invert">
-                              {notes}
-                         </Markdown>
-                    ) : (
-                         <p className="text-muted-foreground text-center">{t("notes.no-notes")}</p>
-                    )}
-               </ScrollArea>
-          </Popup>
-          </>
      )
 }

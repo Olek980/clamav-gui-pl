@@ -11,6 +11,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Fixed
 - Error toast description bug
 - A bug after finishing the update (Experimental)
+### Changed
+- Replaced the Update Release Notes Part of the updater with a Changelog shortcut button
 
 ## [1.0.2] - 2026-03-07
 ### Added
