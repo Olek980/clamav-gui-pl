@@ -13,6 +13,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - A bug after finishing the update (Experimental)
 ### Changed
 - Replaced the Update Release Notes Part of the updater with a Changelog shortcut button
+### Improved
+- **Emoji on the *"No ClamAV"* Page** - Now uses 3 emojis with a random image loader
 
 ## [1.0.2] - 2026-03-07
 ### Added

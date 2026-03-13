@@ -8,6 +8,7 @@ import AddPath from "./steps/add-path";
 import { Trans, useTranslation } from "react-i18next";
 import LanguageSelector from "@/i18n/languages";
 import LoadingButton from "../loading-button";
+import { getRandomEmoji } from "@/lib/helpers";
 
 const steps = [
      { alias: "installation", element: <Installation/> },
@@ -29,10 +30,11 @@ export default function NoClamAVPage({isPending, handleCheck}: Props){
                setStep(prev=>(prev+1)%steps.length)
           }
      }
+     const randomImage = useMemo(()=>`/emojis/${getRandomEmoji()}.webp`,[])
      return (
           <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-4 h-screen">
                <div className="flex items-center justify-center text-center">
-                    <img src="/shrug.webp" alt="Uncertain" width={450} height={450}/>
+                    <img src={randomImage} alt="Emoji" width={450} height={450}/>
                </div>
                <div className="flex flex-col items-center justify-evenly text-center gap-4 py-4">
                     <div className="space-y-2">

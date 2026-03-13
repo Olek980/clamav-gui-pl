@@ -75,7 +75,10 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 ### Planned Improvements
 - [X] Export Settings as JSON
 - [X] Import Settings from JSON
-- [ ] Random Emoji Images on the "No ClamAV" Page after loading
+- [X] GUI Updater
+  - [X] Replace the Update release notes part of the updater with a Changelog shortcut button
+  - [X] Fix the No ClamAV Page appearing after a GUI Update (Experimental)
+- [X] Random Emoji Images on the "No ClamAV" Page after loading
 - [ ] Backend Error Translation
 - [ ] New Clear History Options
   - [ ] Clear last 24 hours
@@ -88,9 +91,6 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
   - [ ] Troubleshooting
   - [ ] FAQs
 - [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
-- [X] GUI Updater
-  - [X] Replace the Update release notes part of the updater with a Changelog shortcut button
-  - [X] Fix the No ClamAV Page appearing after a GUI Update (Experimental)
 - [ ] Fix the ARM64 build workflow
 - [ ] Scheduler support for Linux and MacOS
 - [ ] YARA Related Features
