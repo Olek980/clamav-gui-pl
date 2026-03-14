@@ -24,10 +24,10 @@ export default function ConfirmationMessage({
           <Popup
                open={state!==""}
                onOpen={(open)=>onOpenChange(open ? state : "")}
-               title={state==="" ? "" : t(`confirmation.${state}.title`)}
-               description={state==="" ? undefined : t(`confirmation.${state}.desc`)}
-               submitTxt={submitAction==="" ? undefined : t(`confirmation.actions.${submitAction}`)}
-               closeText={t("confirmation.actions.cancel")}
+               title={state==="" ? "" : t(`${state}.title`)}
+               description={state==="" ? undefined : t(`${state}.desc`)}
+               submitTxt={submitAction==="" ? undefined : t(`actions.${submitAction}`)}
+               closeText={t("actions.cancel")}
                submitEvent={submitEvent}
                type={type}
           />

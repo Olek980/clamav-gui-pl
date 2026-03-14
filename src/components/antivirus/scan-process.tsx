@@ -49,6 +49,7 @@ export default function ScanProcess({scanState, handleReset, isStartup}: Props){
      const {t} = useTranslation("scan");
      const {locale} = useLocale();
      const {t: numSuffixTxt} = useTranslation()
+     const {t: confTxt} = useTranslation("confirmation")
      return (
           <>
                <p className="text-muted-foreground font-medium">{t("scan-type.title",{
@@ -124,10 +125,10 @@ export default function ScanProcess({scanState, handleReset, isStartup}: Props){
                <Popup
                     open={isOpen}
                     onOpen={setIsOpen}
-                    title={t("confirmation.title",{scanName: scanType!=="" ? t(`scan-type.${scanType}.name`) : ""})}
-                    description={t("confirmation.desc")}
-                    submitTxt={t("confirmation.stop")}
-                    closeText={t("confirmation.cancel")}
+                    title={confTxt("scan.title",{scanName: scanType!=="" ? t(`scan-type.${scanType}.name`) : ""})}
+                    description={confTxt("scan.desc")}
+                    submitTxt={confTxt("scan.stop")}
+                    closeText={confTxt("scan.cancel")}
                     submitEvent={handleStopScan}
                     type="danger"
                />
