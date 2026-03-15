@@ -18,6 +18,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Improved
 - **Emoji on the *"No ClamAV"* Page** - Now uses 3 emojis with a random image loader
 - Popup placements if it has over 2 Popup placements (Experimental)
+### Scrapped
+- The "Mark All as Acknowledged" feature - Due to limits
 
 ## [1.0.2] - 2026-03-07
 ### Added
