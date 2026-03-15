@@ -30,6 +30,7 @@ export default function FolderPathForm({data, onSubmit, onDelete, title, addButt
      const [currPath, setCurrPath] = useState("")
      const {t} = useTranslation("settings")
      const {t: validationMsg} = useTranslation("messages")
+     const {t: confirmMsg} = useTranslation("confirmation")
      const form = useForm<PathFormType>({
           resolver: zodResolver(getPathFormSchema(validationMsg)),
           defaultValues: {path: ""}
@@ -67,7 +68,7 @@ export default function FolderPathForm({data, onSubmit, onDelete, title, addButt
                          {data.map((path,i)=>(
                               <li key={i+1} className="flex justify-between items-center gap-2 pb-1 border-b last:pb-0 last:border-none break-all">
                                    {path}
-                                   <Button variant="ghost" size="icon-lg" title={t("folder-path-form.confirmation.remove")} onClick={()=>{
+                                   <Button variant="ghost" size="icon-lg" title={confirmMsg("actions.remove")} onClick={()=>{
                                         setIsOpenDelete(true);
                                         setCurrPath(path)
                                    }}>
@@ -127,9 +128,9 @@ export default function FolderPathForm({data, onSubmit, onDelete, title, addButt
                open={isOpenDelete}
                onOpen={setIsOpenDelete}
                title={confirmationTitle}
-               description={t("folder-path-form.confirmation.desc")}
-               submitTxt={t("folder-path-form.confirmation.remove")}
-               closeText={t("folder-path-form.confirmation.cancel")}
+               description={confirmMsg("folder-path-form-desc")}
+               submitTxt={confirmMsg("actions.remove")}
+               closeText={confirmMsg("actions.cancel")}
                submitEvent={()=>{
                     setIsOpenDelete(false);
                     onDelete(currPath);

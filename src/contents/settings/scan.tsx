@@ -133,7 +133,7 @@ export default function ScanSettings({scanProfile}: SettingsProps){
                          addButtonText={t("exclusions.add-button")}
                          emptyText={t("exclusions.no-exclusions")}
                          formTitle={t("exclusions.form-title")}
-                         confirmationTitle={t("exclusions.confirmation")}
+                         confirmationTitle={t("exclusions.modal-title")}
                          data={dirExclusions}
                          onSubmit={values=>handleExclusionAction(values.path,"exclude")}
                          onDelete={path=>handleExclusionAction(path,"remove")}

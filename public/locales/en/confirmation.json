@@ -7,7 +7,10 @@
           "delete-settings": "Delete Settings",
           "restore-defaults": "Restore Defaults",
           "delete-job": "Remove Job",
-          "clear-jobs": "Clear Jobs"
+          "clear-jobs": "Clear Jobs",
+          "remove": "Remove",
+          "stop": "Stop",
+          "turn-off": "Turn off"
      },
      "clear-all": {
           "title": "Clear history?",
@@ -67,8 +70,11 @@
      },
      "scan": {
           "title": "Are you sure to stop the {{scanName}}?",
-          "desc": "This will cancel all the scan process and return to the scan options menu.",
-          "stop": "Stop",
-          "cancel": "Cancel"
+          "desc": "This will cancel all the scan process and return to the scan options menu."
+     },
+     "folder-path-form-desc": "Continue?",
+     "real-time-scan": {
+          "title": "Are you sure you want to turn off Real-Time Scan?",
+          "desc": "Disabling real-time protection may expose your device to threats."
      }
 }

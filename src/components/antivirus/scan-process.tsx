@@ -127,8 +127,8 @@ export default function ScanProcess({scanState, handleReset, isStartup}: Props){
                     onOpen={setIsOpen}
                     title={confTxt("scan.title",{scanName: scanType!=="" ? t(`scan-type.${scanType}.name`) : ""})}
                     description={confTxt("scan.desc")}
-                    submitTxt={confTxt("scan.stop")}
-                    closeText={confTxt("scan.cancel")}
+                    submitTxt={confTxt("actions.stop")}
+                    closeText={confTxt("actions.cancel")}
                     submitEvent={handleStopScan}
                     type="danger"
                />

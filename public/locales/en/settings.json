@@ -102,7 +102,7 @@
           "add-button": "Add an exclusion",
           "no-exclusions": "No Folder Exclusions yet",
           "form-title": "Add a Directory to Exclusions",
-          "confirmation": "This will remove the directory path from exclusions"
+          "modal-title": "This will remove the directory path from exclusions"
      },
      "realtime-paths": {
           "title": "Real-Time Scan Monitored Paths",
@@ -110,18 +110,13 @@
           "add-button": "Add Path",
           "no-paths": "No current paths to track",
           "form-title": "Add a path to track",
-          "confirmation": "This will remove the folder from monitored paths, which may expose the folder to threats."
+          "modal-title": "This will remove the folder from monitored paths, which may expose the folder to threats."
      },
      "folder-path-form": {
           "path": "Directory Path",
           "browse": "Browse",
           "add": "Add",
           "close": "Close",
-          "confirmation": {
-               "desc": "Continue?",
-               "remove": "Remove",
-               "cancel": "Cancel"
-          },
           "dialog-title": "Choose a folder path to add"
      },
      "advanced": {
@@ -133,13 +128,7 @@
           },
           "real-time-scan": {
                "title": "Real-Time Scan",
-               "desc": "Automatically scans files when they are created or modified.",
-               "confirmation": {
-                    "title": "Are you sure you want to turn off Real-Time Scan?",
-                    "desc": "Disabling real-time protection may expose your device to threats.",
-                    "turn-off": "Turn off",
-                    "cancel": "Cancel"
-               }
+               "desc": "Automatically scans files when they are created or modified."
           },
           "behavior": {
                "title": "Behavior",

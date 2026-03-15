@@ -22,7 +22,7 @@ export function RealTimeToggle(){
           setSettings({ realTime: false });
           await stop();
      };
-     const {t} = useTranslation("settings")
+     const {t} = useTranslation("confirmation")
      return (
           <>
           <Switch
@@ -32,11 +32,11 @@ export function RealTimeToggle(){
           <Popup
                open={isOpen}
                onOpen={setIsOpen}
-               title={t("advanced.real-time-scan.confirmation.title")}
-               description={t("advanced.real-time-scan.confirmation.desc")}
-               submitTxt={t("advanced.real-time-scan.confirmation.turn-off")}
+               title={t("real-time-scan.title")}
+               description={t("real-time-scan.desc")}
+               submitTxt={t("actions.turn-off")}
                submitEvent={confirmDisable}
-               closeText={t("advanced.real-time-scan.confirmation.cancel")}
+               closeText={t("actions.cancel")}
                type="danger"
           />
           </>

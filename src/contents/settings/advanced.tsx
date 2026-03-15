@@ -248,7 +248,7 @@ export default function AdvancedSettings({scanProfile}: SettingsProps){
                          addButtonText={t("realtime-paths.add-button")}
                          emptyText={t("realtime-paths.no-paths")}
                          formTitle={t("realtime-paths.form-title")}
-                         confirmationTitle={t("realtime-paths.confirmation")}
+                         confirmationTitle={t("realtime-paths.modal-title")}
                          data={monitoringPaths}
                          onSubmit={values=>handlePathAction(values.path,"add")}
                          onDelete={path=>handlePathAction(path,"remove")}
