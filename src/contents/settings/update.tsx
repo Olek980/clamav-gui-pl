@@ -113,7 +113,7 @@ export default function UpdateSettings(){
                          <div className="text-center space-y-0.5">
                               <h2 className={cn(
                                    "text-xl md:text-2xl lg:text-3xl xl:text-[32px] font-semibold",
-                                   isRequired ? "text-red-900 dark:text-red-300" :
+                                   isRequired && !isUpdatingDefs ? "text-red-900 dark:text-red-300" :
                                    (isUpdatingDefs || isInitializing) ? "text-muted-foreground" :
                                    "text-emerald-900 dark:text-emerald-300")}
                               >{t(`definitions.status.${definitionsText}`)}</h2>

@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Fixed
 - Error toast description bug
 - A bug after finishing the update (Experimental)
+- The Red text during updating definitions - changed back to a muted color
 ### Changed
 - Replaced The Update Release Notes Part of the updater with a Changelog shortcut button
 - Moved Scan Confirmation messages to `public/locales/[lang]/confirmation.json`
