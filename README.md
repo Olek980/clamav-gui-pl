@@ -34,7 +34,7 @@
                     <li><a href="#download">Download</a></li>
                </ul>
           </li>
-          <li><a href="#usage">Usage</a></li>
+          <li><a href="#usage-manual">Usage Manual</a></li>
           <li><a href="#versioning">Versioning</a></li>
           <li>
                <a href="#contributing">Contributing</a>
@@ -113,11 +113,13 @@ You can find the latest stable version of the ClamAV GUI right here
 
 [![GitHub Downloads (all assets, latest release)][download-shield]][download-url]
 
-<!-- TODO: Write the Usage Guide on the docs/
-## Usage
+## Usage Manual
 Full documentation is available here:
 ➡️ [Documentation][docs-url]
--->
+  - [Usage Guide](./docs/usage.md)
+  - [Installation Guide](./docs/installation.md)
+  - [Troubleshooting](./docs/troubleshooting.md)
+  - [FAQs](./docs/faq.md)
 
 ## Versioning
 This website follows [Semantic Versioning](https://semver.org/). You can view the full [Changelog][changelog-url] for details on each website version.
