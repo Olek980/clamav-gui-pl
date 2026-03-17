@@ -8,7 +8,7 @@
 
 <h1 align="center">Troubleshooting</h1>
 
-## The ClamAV GUI shows "Oops, ClamAV has not been installed
+## The ClamAV GUI shows "Oops, ClamAV has not been installed"
 Make sure to Install ClamAV by following the installation guide here:
 https://docs.clamav.net/manual/Installing.html
 
