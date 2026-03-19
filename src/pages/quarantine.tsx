@@ -14,6 +14,7 @@ import { ActionType, QuarantineConfirmationState } from "@/lib/types";
 import { useTranslation } from "react-i18next";
 import { useQuarantineCount } from "@/context/quarantine-count";
 import ConfirmationMessage from "@/components/popup/confirm";
+import { getErrorMessage } from "@/lib/helpers";
 const QuarantineTable = lazy(()=>import("@/contents/quarantine"))
 
 export default function QuarantinePage(){
@@ -50,7 +51,7 @@ export default function QuarantinePage(){
                toast.success(messageTxt(`${type}-quarantine.success`));
           } catch (err){
                toast.error(messageTxt(`${type}-quarantine.error`),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           } finally {
                setState({
@@ -71,7 +72,7 @@ export default function QuarantinePage(){
                toast.success(messageTxt(`bulk-${type}-quarantine.success`));
           } catch (err){
                toast.error(messageTxt(`bulk-${type}-quarantine.error`),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           }
      }

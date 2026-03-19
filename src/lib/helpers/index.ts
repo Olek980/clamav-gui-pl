@@ -50,3 +50,5 @@ export function getRandomEmoji(): "hmm" | "shrug" | "uncertain" {
   const randomIndex = Math.floor(Math.random()*array.length)
   return array[randomIndex]
 }
+
+export const getErrorMessage = (err: unknown) => err instanceof Error ? err.message : String(err)

@@ -7,7 +7,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { toast } from "sonner";
 import { revealItemInDir } from "@tauri-apps/plugin-opener";
 import { useMemo } from "react";
-import { getThreatStatusBadges } from "@/lib/helpers";
+import { getErrorMessage, getThreatStatusBadges } from "@/lib/helpers";
 import { Badge } from "@/components/ui/badge";
 import { IFinishScanState, IScanPageState } from "@/lib/types/states";
 import { useSettings } from "@/context/settings";
@@ -117,7 +117,7 @@ export const GET_THREATS_COLS = (
                               toast.success(messageTxt("quarantine.success"))
                          } catch (err){
                               toast.error(messageTxt("quarantine.error"),{
-                                   description: String(err)
+                                   description: getErrorMessage(err)
                               });
                          }
                     }

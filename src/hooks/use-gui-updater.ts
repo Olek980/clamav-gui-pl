@@ -7,6 +7,7 @@ import { GuiUpdaterStatus } from "@/lib/types/enums";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { openUrl } from "@tauri-apps/plugin-opener";
+import { getErrorMessage } from "@/lib/helpers";
 
 export function useGuiUpdater(){
      const [isChecking, startChecking] = useTransition();
@@ -34,7 +35,7 @@ export function useGuiUpdater(){
                     }
                } catch (err){
                     toast.error(t("gui.failed-check.main"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     })
                     setUpdaterState({
                          status: GuiUpdaterStatus.CheckError,
@@ -80,7 +81,7 @@ export function useGuiUpdater(){
                     }
                } catch (err){
                     toast.error(t("gui.failed-update.main"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     })
                     setUpdaterState({
                          status: GuiUpdaterStatus.UpdateError,

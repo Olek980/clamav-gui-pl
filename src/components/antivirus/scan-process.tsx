@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Spinner } from "@/components/ui/spinner";
 import { useSettings } from "@/context/settings";
 import { useLocale } from "@/i18n/locale";
+import { getErrorMessage } from "@/lib/helpers";
 import { formatNumber } from "@/lib/helpers/formating";
 import { ScanType } from "@/lib/types/enums";
 import { IScanPageState } from "@/lib/types/states";
@@ -40,7 +41,7 @@ export default function ScanProcess({scanState, handleReset, isStartup}: Props){
                }
           } catch (err){
                toast.error(messageTxt("scan-stop-error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
                navigate("/scan");
           }

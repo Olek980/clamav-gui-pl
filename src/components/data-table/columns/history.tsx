@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowUp, ArrowUpDown, Ban, Check, CheckCheck, CheckCircle, FileText, List, MoreHorizontal, ScrollText, TriangleAlert } from "lucide-react";
 import { IHistoryData, HistoryStatus } from "@/lib/types/data";
 import { Badge } from "@/components/ui/badge";
-import { getHistoryStatusBadges } from "@/lib/helpers";
+import { getErrorMessage, getHistoryStatusBadges } from "@/lib/helpers";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { invoke } from "@tauri-apps/api/core";
@@ -126,7 +126,7 @@ export const GET_HISTORY_COLS = (
                               })
                          } catch(err){
                               toast.error(messageTxt("log-reveal-error"),{
-                                   description: String(err)
+                                   description: getErrorMessage(err)
                               });
                          }
                     }
@@ -187,7 +187,7 @@ export const GET_HISTORY_COLS = (
                          toast.success(messageTxt("acknowledge-history.success"))
                     } catch (err){
                          toast.error(messageTxt("acknowledge-history.error"),{
-                              description: String(err)
+                              description: getErrorMessage(err)
                          });
                     }
                }

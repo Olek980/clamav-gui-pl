@@ -22,6 +22,7 @@ import { translateDetails } from "@/lib/helpers/history";
 import LoadingButton from "@/components/loading-button";
 import ConfirmationMessage from "@/components/popup/confirm";
 import { HistoryConfirmationState } from "@/lib/types";
+import { getErrorMessage } from "@/lib/helpers";
 
 export default function HistoryContent(){
      const {settings} = useSettings();
@@ -44,7 +45,7 @@ export default function HistoryContent(){
                     setState({ data: newData })
                } catch (err){
                     toast.error(messageTxt("fetch-error.history"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     })
                     setState({ data: [] })
                }
@@ -62,7 +63,7 @@ export default function HistoryContent(){
                     toast.success(t(`clear-messages.${mode}`))
                } catch (err){
                     toast.error(messageTxt("history-clear-errror"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     })
                } finally {
                     setState({popupState: ""})
@@ -86,7 +87,7 @@ export default function HistoryContent(){
                }))
           } catch (err) {
                toast.error(messageTxt("export.error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           }
      }

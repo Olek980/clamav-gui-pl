@@ -18,6 +18,7 @@ import { open, save } from "@tauri-apps/plugin-dialog";
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
 import { toast } from "sonner";
 import { useBackendSettings } from "@/hooks/use-settings";
+import { getErrorMessage } from "@/lib/helpers";
 
 export default function SettingsContent(){
      const [searchParams] = useSearchParams();
@@ -51,7 +52,7 @@ export default function SettingsContent(){
                toast.success(t("export.success"))
           } catch (err) {
                toast.error(t("export.error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                })
           }
      }
@@ -79,7 +80,7 @@ export default function SettingsContent(){
                toast.success(t("import.success"))
           } catch (err){
                toast.error(t("import.error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                })
           }
      }

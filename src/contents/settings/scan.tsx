@@ -19,6 +19,7 @@ import SettingsOption from "@/components/settings-item/settings-option";
 import { useTranslation } from "react-i18next";
 import { ChoiceOption } from "@/components/settings-item/scan-option";
 import { isDescKey } from "@/lib/helpers/scan";
+import { getErrorMessage } from "@/lib/helpers";
 
 export default function ScanSettings({scanProfile}: SettingsProps){
      const {settings, setSettings} = useSettings();
@@ -34,7 +35,7 @@ export default function ScanSettings({scanProfile}: SettingsProps){
                     setExclusions(val=>!stored ? val : stored)
                } catch (err){
                     toast.error(messageTxt("fetch-error.exclusions"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                }
           })

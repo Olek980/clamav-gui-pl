@@ -3,6 +3,7 @@ import { Button } from "./ui/button"
 import { toast } from "sonner";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getErrorMessage } from "@/lib/helpers";
 
 interface Props{
      command: string
@@ -19,7 +20,7 @@ export default function CommandSnippetBlock({command}: Props){
                setTimeout(()=>setIsCopied(false),2000)
           } catch (err) {
                toast.error(messageTxt("copy-command.error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           }
      }

@@ -20,6 +20,7 @@ import { useBackendSettings } from "@/hooks/use-settings";
 import { ScanProfileValues } from "@/lib/types/settings";
 import { mapScanSettingsToArgs, validateScanSettings } from "@/lib/helpers/scan";
 import { useTranslation } from "react-i18next";
+import { getErrorMessage } from "@/lib/helpers";
 
 const ScanProcess = lazy(()=>import("@/components/antivirus/scan-process"))
 
@@ -69,7 +70,7 @@ export default function ScanPage(){
                scanActiveRef.current = false;
                setState({
                     isFinished: true,
-                    errMsg: String(e),
+                    errMsg: getErrorMessage(e),
                     duration: startTimeRef.current ? Math.floor((Date.now() - startTimeRef.current)/1000) : 0,
                     exitCode: -1
                })

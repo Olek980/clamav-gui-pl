@@ -1,3 +1,4 @@
+import { getErrorMessage } from "@/lib/helpers";
 import { fetchPaths } from "@/lib/helpers/fs";
 import { store } from "@/lib/store";
 import { IBackendSettings } from "@/lib/types/settings";
@@ -37,7 +38,7 @@ export function useBackendSettings(){
                });
           } catch(err){
                toast.error(messageTxt("save-settings-error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           }
      }
@@ -51,7 +52,7 @@ export function useBackendSettings(){
                await store.set(key,!value ? current : value);
           } catch(err){
                toast.error(messageTxt("save-settings-error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           }
      }

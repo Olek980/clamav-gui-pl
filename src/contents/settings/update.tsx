@@ -8,7 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Spinner } from "@/components/ui/spinner";
 import { invoke } from "@tauri-apps/api/core";
-import { parseClamVersion } from "@/lib/helpers";
+import { getErrorMessage, parseClamVersion } from "@/lib/helpers";
 import { toast } from "sonner";
 import SettingsItem from "@/components/settings-item";
 import { ButtonGroup } from "@/components/ui/button-group";
@@ -86,7 +86,7 @@ export default function UpdateSettings(){
                          updateVersions(parsed);
                     } catch (err) {
                          toast.error(messageTxt("def-update-error"),{
-                              description: String(err)
+                              description: getErrorMessage(err)
                          })
                     }
                })

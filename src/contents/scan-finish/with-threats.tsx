@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import { useQuarantineCount } from "@/context/quarantine-count";
 import ConfirmationMessage from "@/components/popup/confirm";
 import { ScanFinishConfState } from "@/lib/types";
+import { getErrorMessage } from "@/lib/helpers";
 
 interface Props{
      setScanState: React.Dispatch<React.SetStateAction<IScanPageState>>,
@@ -45,7 +46,7 @@ export default function ScanFinishedTable({setScanState, isStartup, scanState, h
                toast.success(messageTxt("threat-deleted.success"))
           } catch (err){
                toast.error(messageTxt("threat-deleted.error"),{
-                    description: String(err)
+                    description: getErrorMessage(err)
                });
           } finally {
                setState(INITIAL_FINISH_SCAN_STATE)
@@ -66,7 +67,7 @@ export default function ScanFinishedTable({setScanState, isStartup, scanState, h
                     toast.success(messageTxt("threat-quarantined.success"));
                } catch (err) {
                     toast.error(messageTxt("threat-quarantined.error"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                }
           })
@@ -86,7 +87,7 @@ export default function ScanFinishedTable({setScanState, isStartup, scanState, h
                     toast.success(messageTxt("threat-bulk-delete.success"));
                } catch (err) {
                     toast.error(messageTxt("threat-bulk-delete.error"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                } finally {
                     setState({popupState: ""})

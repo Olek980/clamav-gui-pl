@@ -1,6 +1,7 @@
 import LogText from "@/components/log";
 import { Button } from "@/components/ui/button";
 import { useSettings } from "@/context/settings";
+import { getErrorMessage } from "@/lib/helpers";
 import { invoke } from "@tauri-apps/api/core";
 import { ChevronLeft, ScrollText } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
@@ -34,7 +35,7 @@ export default function LogContent({returnUrl}: Props){
                     const msg = [`[ERROR] Failed to load the log (Log ID: ${logId})`]
                     setLogs(msg)
                     toast.error(msg,{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     })
                }
           })

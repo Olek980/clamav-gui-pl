@@ -17,6 +17,7 @@ import { INITIAL_SCHEDULER_STATE } from "@/lib/constants/states";
 import { useSettings } from "@/context/settings";
 import { useTranslation } from "react-i18next";
 import ConfirmationMessage from "@/components/popup/confirm";
+import { getErrorMessage } from "@/lib/helpers";
 
 export default function SchedulerContent(){
      const {settings} = useSettings();
@@ -36,7 +37,7 @@ export default function SchedulerContent(){
                     })
                } catch (err) {
                     toast.error(messageTxt("schedule-scan-error"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                }
           })
@@ -57,7 +58,7 @@ export default function SchedulerContent(){
                     toast.success(messageTxt("remove-job.success"))
                } catch (err){
                     toast.error(messageTxt("remove-job.error"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                } finally {
                     setState({popupState: ""})
@@ -73,7 +74,7 @@ export default function SchedulerContent(){
                     toast.success(messageTxt("clear-jobs.success"))
                } catch (err){
                     toast.error(messageTxt("clear-jobs.error"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                } finally {
                     setState({popupState: ""})
@@ -109,7 +110,7 @@ export default function SchedulerContent(){
                     setState({data: newData})
                } catch (err){
                     toast.error(messageTxt("fetch-error.scheduler"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                     setState({data: []})
                }

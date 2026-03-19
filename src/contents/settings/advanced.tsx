@@ -18,7 +18,7 @@ import { store } from "@/lib/store";
 import SettingsOption from "@/components/settings-item/settings-option";
 import { useTranslation } from "react-i18next";
 import { IBackendSettings, ScanOptionKeys } from "@/lib/types/settings";
-import { ObjectEntries } from "@/lib/helpers";
+import { getErrorMessage, ObjectEntries } from "@/lib/helpers";
 import { ChoiceOption } from "@/components/settings-item/scan-option";
 import { ActionType, DangerZoneConfState } from "@/lib/types";
 import { isDescKey } from "@/lib/helpers/scan";
@@ -43,7 +43,7 @@ export default function AdvancedSettings({scanProfile}: SettingsProps){
                     setPaths(val=>!stored ? val : stored)
                } catch (err){
                     toast.error(messageTxt("fetch-error.realtime-paths"),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                }
           })
@@ -76,7 +76,7 @@ export default function AdvancedSettings({scanProfile}: SettingsProps){
                     toast.success(messageTxt(`${type}-settings.success`));
                } catch(err){
                     toast.error(messageTxt(`${type}-settings.error`),{
-                         description: String(err)
+                         description: getErrorMessage(err)
                     });
                } finally {
                     setPopupState("")

@@ -13,6 +13,7 @@ import { ISchedulerState } from "@/lib/types/states";
 import { useSettings } from "@/context/settings";
 import { useTranslation } from "react-i18next";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { getErrorMessage } from "@/lib/helpers";
 
 export const GET_SCHEDULER_COLS = (
      setState:  (overrides: Partial<ISchedulerState>) => void,
@@ -126,7 +127,7 @@ export const GET_SCHEDULER_COLS = (
                          })
                     } catch(err){
                          toast.error(messageTxt("log-reveal-error"),{
-                              description: String(err)
+                              description: getErrorMessage(err)
                          });
                     }
                }
@@ -138,7 +139,7 @@ export const GET_SCHEDULER_COLS = (
                          toast.success(messageTxt("trigger-scan.success"))
                     } catch (err){
                          toast.error(messageTxt("trigger-scan.error"),{
-                              description: String(err)
+                              description: getErrorMessage(err)
                          });
                     }
                }
