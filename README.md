@@ -89,7 +89,7 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 - [ ] Write the Documentation on the `docs/` folder.
   - [ ] Usage Guide
   - [ ] Installation Guide
-  - [ ] Troubleshooting
+  - [X] Troubleshooting
   - [ ] FAQs
 - [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
 - [ ] Fix the ARM64 build workflow
