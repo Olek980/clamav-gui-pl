@@ -73,14 +73,8 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 - **Multilingual Support** - Use the ClamAV GUI in your native language besides English
 
 ### Planned Improvements
-- [X] Export Settings as JSON
-- [X] Import Settings from JSON
-- [X] GUI Updater
-  - [X] Replace the Update release notes part of the updater with a Changelog shortcut button
-  - [X] Fix the No ClamAV Page appearing after a GUI Update (Experimental)
+- [] GUI Updater
   - [ ] Add a feature to log the updater actions into the history
-- [X] Random Emoji Images on the "No ClamAV" Page after loading
-- [X] Optimize Popup placements if it has over 2 Popup placements
 - [ ] Backend Error Translation
 - [ ] New Clear History Options
   - [ ] Clear last 24 hours
