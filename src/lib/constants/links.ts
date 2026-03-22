@@ -1,5 +1,5 @@
 import { ChartNoAxesCombined, ClipboardClock, Cog, Info, SearchCheck, History, ShieldCheck, BugOff, RotateCcw, FolderSearch, Search, FileSearch } from "lucide-react"
-import { IQuickAccessItem, ISidebarItem } from "../types"
+import { IQuickAccessItem, ISidebarItem } from "../types/items"
 import { QuickAccessLink, SidebarLink } from "../types/enums"
 
 export const SIDEBAR_LINKS: ISidebarItem[] = [

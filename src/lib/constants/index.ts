@@ -1,5 +1,5 @@
 import { Search, SearchCheck, FolderSearch, FileSearch } from "lucide-react";
-import { IScanMenuItem, ISpecialThanksItem } from "../types";
+import { IScanMenuItem, ISpecialThanksItem } from "../types/items";
 import { ScanType } from "../types/enums";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";

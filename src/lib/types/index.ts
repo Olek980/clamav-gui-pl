@@ -2,7 +2,7 @@ import * as z from "zod"
 import { LucideProps } from "lucide-react";
 import { SettingsProps } from "./props";
 import { getPathFormSchema, getSchedulerSchema } from "../schemas";
-import { QuickAccessLink, SettingsTab, SidebarLink, ScanType, BehaviorMode, ScanResult } from "./enums";
+import { SettingsTab, ScanType, BehaviorMode, ScanResult } from "./enums";
 
 export type Mutable<T> = {
   -readonly [P in keyof T]: T[P];
@@ -12,21 +12,6 @@ export type ActionType = "restore" | "delete"
 export type FsOption = "file" | "folder";
 export type DesignType = "default" | "danger";
 
-export interface IScanMenuItem{
-     type: ScanType,
-     Icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>
-}
-export interface IQuickAccessItem{
-     type: QuickAccessLink
-     href: string,
-     Icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>,
-     openDialogType: "none" | "file" | "folder"
-}
-export interface ISidebarItem{
-     name: SidebarLink,
-     href: string,
-     Icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>,
-}
 export interface ISettingsTab{
      page: SettingsTab
      Icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>,
@@ -37,15 +22,14 @@ export interface IClamAvVersion{
      engine: string,
      dbVersion: string
 }
-export interface ISpecialThanksItem{
-     handle: string,
-     link: string,
-     note: "early-test" | "bug-report-test"
-}
 
 // Schemas
-export type SchedulerType = z.infer<ReturnType<typeof getSchedulerSchema>>
-export type PathFormType = z.infer<ReturnType<typeof getPathFormSchema>>
+export type SchedulerType = z.infer<
+     Awaited<ReturnType<typeof getSchedulerSchema>>
+>
+export type PathFormType = z.infer<
+     Awaited<ReturnType<typeof getPathFormSchema>>
+>
 
 export interface IDetailsData {
      "real-time-error": { err: string };
