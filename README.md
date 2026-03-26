@@ -73,27 +73,32 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
 - **Multilingual Support** - Use the ClamAV GUI in your native language besides English
 
 ### Planned Improvements
+#### v1.0.4 (Next)
 - [ ] GUI Updater
   - [ ] Add a feature to log the updater actions into the history
-- [ ] Backend Error Translation
 - [ ] New Clear History Options
   - [ ] Clear last 24 hours
   - [ ] Clear last 7 days
   - [ ] Clear last 30 days
   - [ ] Clear by date
-- [ ] Write the Documentation on the `docs/` folder.
-  - [ ] Usage Guide
-  - [ ] Installation Guide
-  - [X] Troubleshooting
-  - [ ] FAQs
-- [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
+#### v1.0.5 (Planned)
+- [ ] Backend Error Translation
+#### v1.0.6 (Stability)
 - [ ] Fix the ARM64 build workflow
 - [ ] Scheduler support for Linux and MacOS
+#### v1.1.x (Major)
+- [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
 - [ ] YARA Related Features
   - [ ] YARA Scan Type
   - [ ] YARA Real-time Option
   - [ ] YARA Configuration in settings
 - [ ] Feature to submit suspicious signatures to ClamAV
+#### Maybe
+- [ ] Write the Documentation on the `docs/` folder.
+  - [ ] Usage Guide
+  - [ ] Installation Guide
+  - [X] Troubleshooting
+  - [ ] FAQs
 
 ### Built With
 - [![Tauri][tauri-shield]][tauri-url]
