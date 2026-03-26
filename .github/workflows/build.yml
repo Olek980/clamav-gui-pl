@@ -116,8 +116,6 @@ jobs:
       
       - name: "Test Build (no signing)"
         if: github.event_name == 'pull_request'
-        env:
-          TAURI_CONFIG: '{"plugins":{"updater":{"active":false}}}'
         run: |
           npm run build
-          npm run tauri build
+          npx tauri build --no-default-features
