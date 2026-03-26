@@ -9,9 +9,6 @@
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
-  "bundle": {
-    "publisher": "ArsenTech"
-  },
   "app": {
     "windows": [
       {
@@ -25,6 +22,7 @@
     }
   },
   "bundle": {
+    "publisher": "ArsenTech",
     "active": true,
     "targets": "all",
     "icon": [

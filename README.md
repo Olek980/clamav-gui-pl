@@ -81,11 +81,11 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
   - [ ] Clear last 7 days
   - [ ] Clear last 30 days
   - [ ] Clear by date
+- [ ] Fix the ARM64 build workflow
 #### v1.0.5 (Planned)
 - [ ] Backend Error Translation
 - [ ] Add a macOS Guide inside the **No ClamAV** Page
 #### v1.0.6 (Stability)
-- [ ] Fix the ARM64 build workflow
 - [ ] Scheduler support for Linux and MacOS
 #### v1.1.x (Major)
 - [ ] Limit `helpers::scheduler::windows::get_last_run_time` only for Windows Users
@@ -169,8 +169,8 @@ ClamAV is a trademark of Cisco Systems, Inc. This project is an independent, ope
 [version-shield]: https://img.shields.io/github/package-json/v/ArsenTech/clamav-gui?style=for-the-badge
 [downloads-shield]: https://img.shields.io/github/downloads/ArsenTech/clamav-gui/total?style=for-the-badge&label=Total%20Downloads&color=%2322b455
 [downloads-url]:https://github.com/ArsenTech/clamav-gui/releases
-[status-shield]: https://img.shields.io/github/actions/workflow/status/ArsenTech/clamav-gui/publish.yml?style=for-the-badge
-[status-url]: https://github.com/ArsenTech/clamav-gui/actions/workflows/publish.yml
+[status-shield]: https://img.shields.io/github/actions/workflow/status/ArsenTech/clamav-gui/build.yml?style=for-the-badge
+[status-url]: https://github.com/ArsenTech/clamav-gui/actions/workflows/build.yml
 [commits-since-shield]: https://img.shields.io/github/commits-since/ArsenTech/clamav-gui/latest?style=for-the-badge&color=%2322b455&label=Commits%20since%20latest%20version
 [created-at-shield]: https://img.shields.io/github/created-at/ArsenTech/clamav-gui?style=for-the-badge
 [repo-size-shield]: https://img.shields.io/github/repo-size/ArsenTech/clamav-gui?style=for-the-badge
