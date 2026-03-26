@@ -21,6 +21,8 @@ jobs:
             args: '--target x86_64-apple-darwin'
           - platform: 'ubuntu-22.04'
             args: ''
+          - platform: ubuntu-24.04-arm
+            args: ''
           - platform: 'windows-latest'
             args: ''
 
@@ -83,7 +85,7 @@ jobs:
             ---
 
             ## Downloads
-            ### :penguin: Linux
+            ### :penguin: Linux (Debian-based)
             - **rpm** - [ClamAV.GUI-__VERSION__-1.x86_64.rpm][linux-rpm]
             - **AppImage** - [ClamAV.GUI___VERSION___amd64.AppImage][linux-app-image]
             - **deb** - [ClamAV.GUI___VERSION___amd64.deb][linux-deb]
@@ -116,4 +118,4 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           npm run build
-          npm run tauri build -- --config '{"tauri":{"updater":{"active":false}}}'
+          npm run tauri build --config src-tauri/tauri.pr.conf.json
