@@ -118,4 +118,4 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           npm run build
-          npx tauri build --no-default-features
+          npx tauri build -- --no-default-features
