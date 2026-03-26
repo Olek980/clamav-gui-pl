@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -28,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-22.04'
+        if: github.event_name != 'pull_request' || matrix.platform == 'ubuntu-22.04'
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -55,15 +56,17 @@ jobs:
           workspaces: './src-tauri -> target'
 
       - name: install frontend dependencies
-        run: npm install
+        run: npm ci
 
       - name: "Build a Tauri App"
         uses: tauri-apps/tauri-action@v0
+        if: startsWith(github.ref, 'refs/tags/v')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
+          releaseId: ${{ github.ref_name }}
           tagName: v__VERSION__
           releaseName: "ClamAV GUI v__VERSION__"
           releaseDraft: true
@@ -108,4 +111,9 @@ jobs:
             [linux-rpm]: https://github.com/ArsenTech/clamav-gui/releases/download/v__VERSION__/ClamAV.GUI-__VERSION__-1.x86_64.rpm
             [linux-app-image]: https://github.com/ArsenTech/clamav-gui/releases/download/v__VERSION__/ClamAV.GUI___VERSION___amd64.AppImage
             [linux-deb]: https://github.com/ArsenTech/clamav-gui/releases/download/v__VERSION__/ClamAV.GUI___VERSION___amd64.deb
-            
+      
+      - name: "Test Build (no signing)"
+        if: github.event_name == 'pull_request'
+        run: |
+          npm run build
+          npm run tauri build
