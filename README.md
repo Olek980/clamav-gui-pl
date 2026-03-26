@@ -93,6 +93,7 @@ Built with Tauri, React, and modern desktop and web tools. This software is prov
   - [ ] YARA Scan Type
   - [ ] YARA Real-time Option
   - [ ] YARA Configuration in settings
+- [ ] Feature to submit suspicious signatures to ClamAV
 
 ### Built With
 - [![Tauri][tauri-shield]][tauri-url]
